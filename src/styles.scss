@@ -60,10 +60,23 @@ app-footer {
   }
 
   mat-toolbar {
-    background-color: #f4f4f4 !important;
+    background-color: #dfdfdf !important;
+    box-shadow: 0 0.1rem 0.2rem #00000030;
+  }
+
+  mat-sidenav-container {
+    mat-sidenav {
+      background-color: #efefef !important;
+      box-shadow: 0 0.1rem 0.2rem #00000021 !important;
+    }
+
+    mat-sidenav-content {
+      background-color: #f4f4f4;
+    }
   }
 
   app-footer {
-    background-color: #f4f4f4;
+    background-color: #dfdfdf;
+    box-shadow: 0 -0.1rem 0.2rem #00000030;
   }
 }
