@@ -1,6 +1,7 @@
+@if (!emailService.applicationSubmitted()) {
 <h1 class="gradient-text">Apply to the Internship</h1>
 <!-- Angular Material Stepper -->
-<mat-horizontal-stepper linear #stepper>
+<mat-horizontal-stepper #stepper>
   <mat-step>
     <ng-template matStepLabel>Choose Area</ng-template>
     <p>Please select your preferred area of focus:</p>
@@ -29,7 +30,7 @@
     <p>Please select an area of focus first.</p>
     }
     <div class="actions">
-      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button matStepperPrevious (click)="selectedProject === null">Back</button>
       <button mat-raised-button matStepperNext (click)="updateAvailableProjects()"
         [disabled]="!selectedTech">Next</button>
     </div>
@@ -40,7 +41,7 @@
     <ng-template matStepLabel>Available Projects</ng-template>
     @if (selectedTech) {
     <p>Here are the available projects for your chosen technology:</p>
-    @for (project of availableProjects; track project) {
+    @for (project of availableProjects; track project.name) {
     <div class="project" [class.active]="project === selectedProject" (click)="setSelectedProject(project)">
       <img src="{{project.image}}" alt="{{project.name}}">
       <h3 class="gradient-text">{{project.name}}</h3>
@@ -50,8 +51,58 @@
     <p>Please select technology first.</p>
     }
     <div class="actions">
+      <button mat-raised-button matStepperPrevious (click)="selectedProject === null">Back</button>
+      <button mat-raised-button matStepperNext [disabled]="selectedProject === null">Next</button>
+    </div>
+  </mat-step>
+
+  <!-- Step 4: Apply -->
+  <mat-step>
+    <ng-template matStepLabel>Apply</ng-template>
+    @if (selectedProject) {
+    <div class="form">
+      <div class="top">
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input matInput placeholder="Full Name" #nameInput="ngModel" [(ngModel)]="fullName" required>
+          @if (nameInput.invalid && (nameInput.dirty || nameInput.touched)) {
+            <mat-error>Name is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" [(ngModel)]="contactEmail" #emailInput="ngModel" required>
+          @if (emailInput.invalid && (emailInput.dirty || emailInput.touched)) {
+            <mat-error>Email is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Duration</mat-label>
+          <mat-select [(ngModel)]="selectedDuration" #optionInput="ngModel" required>
+            @for (option of durationOptions; track option) {
+              <mat-option value="{{option}}">{{option}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <mat-label>Message</mat-label>
+        <textarea matInput placeholder="Why do you want to work on this project?" [(ngModel)]="message" #messageInput="ngModel" maxlength="400" required></textarea>
+        @if (messageInput.invalid && (messageInput.dirty || messageInput.touched)) {
+          <mat-error>Message is required</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    } @else {
+    <p>Please select a project first.</p>
+    }
+    <div class="actions">
       <button mat-raised-button matStepperPrevious>Back</button>
-      <button mat-raised-button [disabled]="!selectedProject">Apply</button>
+      <button mat-raised-button (click)="submitApplication()"
+        [disabled]="!selectedArea || !selectedTech || !selectedProject || !fullName || !contactEmail || !message">Submit</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+} @else {
+  <h1 class="gradient-text">Application Submitted</h1>
+}

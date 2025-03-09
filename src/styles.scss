@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin: 0;
   height: 100%;
   overflow-x: hidden;
@@ -22,7 +22,7 @@ body {
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
     ),
-    typography: 'GetVoIP Grotesque',
+    typography: 'Ubuntu',
     density: 0,
   ));
 
@@ -47,6 +47,11 @@ body {
   *[mat-raised-button]:not([disabled]) {
     background: linear-gradient(135deg, #27baf8, #7578eb, #9859e5, #d722db);
     color: #f4f4f4;
+    font-family: 'GetVoIP Grotesque', sans-serif;
+  }
+
+  *[mat-raised-button][disabled] {
+    font-family: 'GetVoIP Grotesque', sans-serif;
   }
 }
 
@@ -54,11 +59,11 @@ html {
   height: 100%;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'GetVoIP Grotesque', sans-serif;
 }
 
-p {
+p, input, textarea {
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -129,6 +134,7 @@ mat-horizontal-stepper {
     padding-top: 0.5rem;
 
     label {
+      font-family: 'GetVoIP Grotesque', sans-serif;
       font-size: 1.1rem;
     }
   }
@@ -148,7 +154,7 @@ app-footer {
         primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
-      typography: 'GetVoIP Grotesque',
+      typography: 'Ubuntu',
       density: 0,
     ));
 
