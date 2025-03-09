@@ -1,11 +1,11 @@
 <div class="container" [class.is-mobile]="isMobile()">
   <mat-toolbar class="toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon class="gradient-text">menu</mat-icon></button>
     <a class="logo" routerLink="/">
       <mat-icon svgIcon="logo"></mat-icon>
       <div class="title">
-        <h1>CodeSpotlight</h1>
-        <p>Open Source Internship</p>
+        <h1 class="gradient-text">CodeSpotlight</h1>
+        <p class="gradient-text">The Open Source Internship</p>
       </div>
     </a>
   </mat-toolbar>
@@ -16,8 +16,8 @@
       <mat-nav-list>
         @for (nav of navItems; track nav) {
         <a mat-list-item routerLink="{{nav.route}}" routerLinkActive="active">
-          <mat-icon>{{nav.icon}}</mat-icon>
-          <span>{{nav.name}}</span>
+          <mat-icon class="gradient-text">{{nav.icon}}</mat-icon>
+          <span class="gradient-text">{{nav.name}}</span>
         </a>
         }
       </mat-nav-list>

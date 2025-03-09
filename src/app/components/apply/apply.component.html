@@ -1,0 +1,57 @@
+<h1 class="gradient-text">Apply to the Internship</h1>
+<!-- Angular Material Stepper -->
+<mat-horizontal-stepper linear #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Choose Area</ng-template>
+    <p>Please select your preferred area of focus:</p>
+    <mat-radio-group [(ngModel)]="selectedArea" aria-label="Choose Area">
+      <mat-radio-button value="frontend">Frontend</mat-radio-button>
+      <mat-radio-button value="backend">Backend</mat-radio-button>
+    </mat-radio-group>
+    <div class="actions">
+      <button mat-raised-button matStepperNext (click)="updateTechOptions()" [disabled]="!selectedArea">Next</button>
+    </div>
+  </mat-step>
+
+  <!-- Step 2: Choose Technology -->
+  <mat-step>
+    <ng-template matStepLabel>Choose Technology</ng-template>
+    @if (selectedArea) {
+    <p>Based on your chosen area, please select a technology:</p>
+    <mat-radio-group [(ngModel)]="selectedTech" aria-label="Choose Technology">
+      @for (tech of techOptions; track tech) {
+      <mat-radio-button [value]="tech">
+        {{ tech }}
+      </mat-radio-button>
+      }
+    </mat-radio-group>
+    } @else {
+    <p>Please select an area of focus first.</p>
+    }
+    <div class="actions">
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button matStepperNext (click)="updateAvailableProjects()"
+        [disabled]="!selectedTech">Next</button>
+    </div>
+  </mat-step>
+
+  <!-- Step 3: View Matching Projects -->
+  <mat-step>
+    <ng-template matStepLabel>Available Projects</ng-template>
+    @if (selectedTech) {
+    <p>Here are the available projects for your chosen technology:</p>
+    @for (project of availableProjects; track project) {
+    <div class="project" [class.active]="project === selectedProject" (click)="setSelectedProject(project)">
+      <img src="{{project.image}}" alt="{{project.name}}">
+      <h3 class="gradient-text">{{project.name}}</h3>
+    </div>
+    }
+    } @else {
+    <p>Please select technology first.</p>
+    }
+    <div class="actions">
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button [disabled]="!selectedProject">Apply</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,5 +1,15 @@
 @use '@angular/material' as mat;
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+  font-family: 'GetVoIP Grotesque';
+  src: url('../public/fonts/GetVoIP-Grotesque.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Improves performance and rendering */
+}
+
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   margin: 0;
@@ -12,13 +22,44 @@ body {
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
     ),
-    typography: Roboto,
+    typography: 'GetVoIP Grotesque',
     density: 0,
   ));
+
+  // Styles for the scrollbar
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #2d2d2d;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 0.4rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a;
+  }
+
+  *[mat-raised-button]:not([disabled]) {
+    background: linear-gradient(135deg, #27baf8, #7578eb, #9859e5, #d722db);
+    color: #f4f4f4;
+  }
 }
 
 html {
   height: 100%;
+}
+
+h1, h2 {
+  font-family: 'GetVoIP Grotesque', sans-serif;
+}
+
+p {
+  font-family: "Ubuntu", sans-serif;
 }
 
 a {
@@ -26,14 +67,29 @@ a {
   text-decoration: none;
 }
 
+.gradient-text {
+  background: linear-gradient(135deg, #27baf8, #7578eb, #9859e5, #d722db);
+  -webkit-background-clip: text;
+  /* For Safari and Chrome */
+  -webkit-text-fill-color: transparent;
+  /* For Safari and Chrome */
+  background-clip: text;
+  /* For Firefox */
+  color: transparent;
+  font-weight: 500;
+}
+
 mat-toolbar {
-  background-color: #202020 !important;
+  background-color: #1f1f1f !important;
+  box-shadow: 0 0.1rem 0.2rem #00000065;
 }
 
 mat-sidenav-container {
   color: #dbdbdb !important;
+
   mat-sidenav {
     background-color: #292929 !important;
+    box-shadow: 0 0.1rem 0.2rem #00000065 !important;
     border-radius: 0 !important;
 
     .mdc-list-item__primary-text {
@@ -60,8 +116,27 @@ mat-sidenav-container {
   }
 }
 
+mat-horizontal-stepper {
+  background-color: #1f1f1f !important;
+  box-shadow: 0 0.1rem 0.2rem #00000065;
+  border-radius: 1rem;
+
+  .mat-horizontal-stepper-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.5rem;
+
+    label {
+      font-size: 1.1rem;
+    }
+  }
+}
+
 app-footer {
-  background-color: #202020;
+  background-color: #1f1f1f;
+  box-shadow: 0 -0.1rem 0.2rem #00000065;
   color: gray;
 }
 
@@ -73,9 +148,30 @@ app-footer {
         primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
-      typography: Roboto,
+      typography: 'GetVoIP Grotesque',
       density: 0,
     ));
+
+    // Styles for the scrollbar
+    ::-webkit-scrollbar {
+      width: 0.8rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #e0e0e0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #b0b0b0;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #a0a0a0;
+    }
+  }
+
+  label {
+    color: #333 !important;
   }
 
   mat-toolbar {
@@ -94,6 +190,12 @@ app-footer {
     mat-sidenav-content {
       background-color: #f4f4f4;
     }
+  }
+
+  mat-horizontal-stepper {
+    background-color: #dfdfdf !important;
+    box-shadow: 0 0.1rem 0.2rem #00000030;
+    color: #333;
   }
 
   app-footer {
