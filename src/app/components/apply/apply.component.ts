@@ -106,5 +106,16 @@ export class ApplyComponent implements OnInit {
       this.contactEmail,
       this.message
     );
+
+    setTimeout(() => {
+    this.selectedArea = "";
+    this.selectedTech = "";
+    this.selectedProject = null;
+    this.selectedDuration = "";
+    this.fullName = "";
+    this.contactEmail = "";
+    this.message = "";
+    this.applicationSubmitted = true;
+    }, 5000);
 	}
 }

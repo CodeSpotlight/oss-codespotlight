@@ -31,7 +31,7 @@ export class EmailService {
         this.applicationSubmitted.set(true);
         setTimeout(() => {
           this.applicationSubmitted.set(false);
-        }, 3000);
+        }, 5000);
       },
       error: (error) => {
         console.error("Failed to send email:", error);
