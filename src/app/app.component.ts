@@ -1,7 +1,7 @@
 import { MediaMatcher } from "@angular/cdk/layout";
 import { Component, OnDestroy, inject, signal } from "@angular/core";
 import { FooterComponent } from "./components/footer/footer.component";
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { MatListModule } from "@angular/material/list";
@@ -14,6 +14,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 	selector: "app-root",
 	imports: [
     RouterLink,
+    RouterLinkActive,
 		RouterOutlet,
 		FooterComponent,
 		MatToolbarModule,
@@ -29,10 +30,10 @@ export class AppComponent implements OnDestroy {
   matIconRegistry = inject(MatIconRegistry);
   domSanitizer = inject(DomSanitizer);
 
-	protected readonly fillerNav = Array.from(
-		{ length: 5 },
-		(_, i) => `Nav Item ${i + 1}`
-	);
+  navItems = [
+    { name: "Home", route: "/home", icon: "home_outlined" },
+    { name: "Apply", route: "/apply", icon: "format_list_bulleted" },
+  ];
 
 	protected readonly isMobile = signal(true);
 

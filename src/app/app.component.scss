@@ -30,7 +30,7 @@
 
   mat-toolbar {
     height: 5rem;
-    gap: 0.5rem;
+    padding: 0.5rem 1rem;
     z-index: 2;
 
     .logo {
@@ -74,7 +74,9 @@
     mat-sidenav-content {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
     }
   }
 }

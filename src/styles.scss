@@ -31,9 +31,28 @@ mat-toolbar {
 }
 
 mat-sidenav-container {
+  color: #dbdbdb !important;
   mat-sidenav {
     background-color: #292929 !important;
     border-radius: 0 !important;
+
+    .mdc-list-item__primary-text {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    mat-nav-list {
+      display: flex !important;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      a {
+        &.active {
+          background-color: #80808030;
+        }
+      }
+    }
   }
 
   mat-sidenav-content {
@@ -65,6 +84,8 @@ app-footer {
   }
 
   mat-sidenav-container {
+    color: #333 !important;
+
     mat-sidenav {
       background-color: #efefef !important;
       box-shadow: 0 0.1rem 0.2rem #00000021 !important;

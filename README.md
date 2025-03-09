@@ -1,14 +1,14 @@
-# Code Spotlight 
+# CodeSpotlight 
 ## Main Website Repository
 
-Welcome to the **Code Spotlight Open Source Internship Program Website** repository! 
+Welcome to the **CodeSpotlight Open Source Internship Program Website** repository! 
 
-This project serves as the official home for everything related to the **Code Spotlight Open Source Internship Program**, including applying to the internship, exploring available tracks and projects, and learning everything you need to know about the initiative.
+This project serves as the official home for everything related to the **CodeSpotlight Open Source Internship Program**, including applying to the internship, exploring available tracks and projects, and learning everything you need to know about the initiative.
 
 ---
 
 ## **About This Repository**
-This repository contains the source code for the Code Spotlight website, which acts as the central hub for:
+This repository contains the source code for the CodeSpotlight website, which acts as the central hub for:
 - **Program Overview**: Learn about what makes the internship unique.
 - **Tracks and Projects**: Explore available tracks (Frontend - Angular, Frontend - Next.js, Backend - Node.js) and view participating projects.
 - **Application Process**: A guided application form to join the internship.
@@ -42,7 +42,7 @@ This repository is built with the following technologies:
    - Dedicated sections explaining open-source principles, contribution workflows, and project-specific documentation.
 
 4. **Community and Updates**:
-   - Announcements, blog posts, and updates related to Code Spotlight and its progress.
+   - Announcements, blog posts, and updates related to CodeSpotlight and its progress.
 
 5. **Contributions**:
    - A section encouraging contributions to both the website and the open-source projects tied to the program.
@@ -121,16 +121,16 @@ Here is a quick overview of the key files and folders in the project:
 
 ---
 
-## **How This Site Fits into Code Spotlight**
+## **How This Site Fits into CodeSpotlight**
 This website serves as the primary point of interaction for potential interns and participants:
 - **For Interns**: They can apply for tracks, explore projects, and track their progress.  
-- **For Visitors**: They can learn about Code Spotlight, read updates, and even contribute to the program as non-official participants.  
+- **For Visitors**: They can learn about CodeSpotlight, read updates, and even contribute to the program as non-official participants.  
 - **For Contributors**: They can help enhance the website as part of their open-source contributions.
 
 ---
 
 ## **Community and Support**
-Join the Code Spotlight community to stay connected:
+Join the CodeSpotlight community to stay connected:
 - **Discord/Slack**: [Link to chat community]
 - **GitHub Organization**: [Link to GitHub org]
 
@@ -143,7 +143,7 @@ This project wouldn’t exist without the amazing contributions from developers 
 
 ---
 
-We hope this repository and website make it easy for **interns**, **contributors**, and **open-source enthusiasts** to engage with the **Code Spotlight program**. Let’s spotlight your coding journey together! 🚀
+We hope this repository and website make it easy for **interns**, **contributors**, and **open-source enthusiasts** to engage with the **CodeSpotlight program**. Let’s spotlight your coding journey together! 🚀
 
 ---
 
