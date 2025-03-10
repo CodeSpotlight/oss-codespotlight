@@ -9,7 +9,6 @@
           {{ requirement.category }}
         </mat-panel-title>
       </mat-expansion-panel-header>
-
       <ul>
         @for (item of requirement.items; track item) {
         <li>
@@ -17,6 +16,16 @@
         </li>
         }
       </ul>
+      @if (requirement.socialLinks) {
+      <div class="social-links">
+        @for (social of requirement.socialLinks; track social.icon) {
+        <a href="{{social.url}}" target="_blank" rel="noopener">
+          <mat-icon svgIcon="{{social.icon}}"></mat-icon>
+        </a>
+        }
+      </div>
+      }
+
     </mat-expansion-panel>
     }
   </mat-accordion>

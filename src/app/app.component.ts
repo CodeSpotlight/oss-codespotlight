@@ -71,6 +71,14 @@ export class AppComponent implements OnInit, OnDestroy {
       "github",
       this.domSanitizer.bypassSecurityTrustResourceUrl("/icons/github.svg")
     );
+    this.matIconRegistry.addSvgIcon(
+      "linkedin",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("/icons/linkedin.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "x",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("/icons/x.svg")
+    );
 	}
 
   ngOnInit(): void {
