@@ -45,7 +45,6 @@ export class AppComponent implements OnDestroy {
     { name: "Home", route: "/home", icon: "home_outlined" },
     { name: "Requirements", route: "/requirements", icon: "check_circle_outline" },
     { name: "Participants", route: "/participants", icon: "people" },
-    { name: "Apply", route: "/apply", icon: "format_list_bulleted" },
   ];
 
 	protected readonly isMobile = signal(true);

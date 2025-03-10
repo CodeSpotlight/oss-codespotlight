@@ -1,1 +1,23 @@
-<p>requirements works!</p>
+<div class="requirements page">
+  <h1 class="gradient-text">Requirements for Successful Completion</h1>
+  <mat-accordion multi>
+    <!-- Loop through each requirement -->
+    @for (requirement of requirements; track requirement; let i = $index) {
+    <mat-expansion-panel [expanded]="i === 0">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ requirement.category }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ul>
+        @for (item of requirement.items; track item) {
+        <li>
+          {{ item }}
+        </li>
+        }
+      </ul>
+    </mat-expansion-panel>
+    }
+  </mat-accordion>
+</div>

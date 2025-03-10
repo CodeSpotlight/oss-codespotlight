@@ -42,6 +42,10 @@
         </a>
         }
         @if (authService.user()) {
+          <a mat-list-item routerLink="/apply" routerLinkActive="active">
+            <mat-icon class="gradient-text">format_list_bulleted</mat-icon>
+            <span class="gradient-text">Apply</span>
+          </a>
           <mat-divider></mat-divider>
           <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
             <mat-icon class="gradient-text">dashboard</mat-icon>
@@ -50,6 +54,11 @@
           <a mat-list-item [routerLink]="['/user', authService.username()]" routerLinkActive="active">
             <mat-icon class="gradient-text">person</mat-icon>
             <span class="gradient-text">Profile</span>
+          </a>
+        } @else {
+          <a mat-list-item (click)="onSignIn()">
+            <mat-icon class="gradient-text">format_list_bulleted</mat-icon>
+            <span class="gradient-text">Apply</span>
           </a>
         }
       </mat-nav-list>

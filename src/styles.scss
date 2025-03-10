@@ -23,6 +23,12 @@
 }
 
 :root {
+  @include mat.expansion-overrides((
+    container-background-color: #303030,
+  ));
+}
+
+:root {
   @include mat.divider-overrides((
     color: #474747,
   ));
@@ -159,6 +165,16 @@ mat-horizontal-stepper {
   }
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  min-height: 60vh;
+}
+
 app-footer {
   background-color: #1f1f1f;
   box-shadow: 0 -0.1rem 0.2rem #00000065;
@@ -175,6 +191,12 @@ app-footer {
   :root {
     @include mat.menu-overrides((
       container-color: #ebebeb,
+    ));
+  }
+
+  :root {
+    @include mat.expansion-overrides((
+      container-background-color: #ebebeb,
     ));
   }
 
