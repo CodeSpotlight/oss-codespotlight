@@ -1,7 +1,7 @@
 import { MediaMatcher } from "@angular/cdk/layout";
-import { Component, OnDestroy, inject, signal } from "@angular/core";
+import { Component, OnDestroy, OnInit, inject, signal } from "@angular/core";
 import { FooterComponent } from "./components/footer/footer.component";
-import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { DomSanitizer } from "@angular/platform-browser";
 import { AuthService } from "./services/auth.service";
 import { SignInDialogComponent } from "./dialogs/sign-in-dialog/sign-in-dialog.component";
@@ -15,6 +15,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { NotificationsService } from "./services/notifications.service";
 import { MatDialog } from "@angular/material/dialog";
 import { MatDividerModule } from "@angular/material/divider";
+import { filter } from "rxjs";
 
 @Component({
 	selector: "app-root",
@@ -34,8 +35,9 @@ import { MatDividerModule } from "@angular/material/divider";
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   readonly signInDialog = inject(MatDialog);
+  private router = inject(Router);
   matIconRegistry = inject(MatIconRegistry);
   domSanitizer = inject(DomSanitizer);
   authService = inject(AuthService);
@@ -71,8 +73,24 @@ export class AppComponent implements OnDestroy {
     );
 	}
 
-  onSignIn() {
+  ngOnInit(): void {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      const path = this.router.url;
+      if (path === "/apply") {
+        setTimeout(() => {
+        localStorage.removeItem("apply");
+        }, 1000);
+      }
+    });
+  }
+
+  onSignIn(apply?: boolean) {
     this.signInDialog.open(SignInDialogComponent);
+    if (apply) {
+      localStorage.setItem("apply", "true");
+    } else {
+      localStorage.removeItem("apply");
+    }
   }
 
   onLogout() {

@@ -32,11 +32,16 @@ export class AuthService {
 						: "";
 					this.username.set(emailToUsername);
 					this.avatar.set(this.user()?.user_metadata["avatar_url"]);
+          if (localStorage.getItem("apply")) {
+            this.router.navigate(["/apply"]);
+          } else {
 					this.router.navigate(["/dashboard"]);
+          }
 				} else {
 					this.user.set(null);
 					this.username.set(null);
 					this.avatar.set(null);
+          localStorage.removeItem("apply");
 					this.router.navigate(["/"]);
 				}
 			}
@@ -57,6 +62,7 @@ export class AuthService {
 
 	async signOut() {
 		await this.supabase.auth.signOut();
+    localStorage.removeItem("apply");
 		this.router.navigate(["/"]);
 	}
 }
