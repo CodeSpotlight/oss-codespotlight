@@ -29,35 +29,60 @@
   }
 
   mat-toolbar {
+    display: flex;
+    justify-content: space-between;
     height: 5rem;
     padding: 0.5rem 1rem;
     z-index: 2;
 
-    .logo {
+    .toolbar-start {
       display: flex;
       align-items: center;
-      gap: 0.3rem;
-
-      mat-icon {
-        height: 3.2rem;
-        width: 3.2rem;
-      }
-
-      .title {
+      .logo {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 0.3rem;
 
-        h1 {
-          font-size: 1.5rem;
-          line-height: 1.6rem;
-          margin: 0;
+        mat-icon {
+          height: 3.2rem;
+          width: 3.2rem;
         }
-        p {
-          font-family: 'GetVoIP Grotesque', sans-serif;
-          font-size: 0.9rem;
-          line-height: 1rem;
-          margin: 0;
+
+        .title {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          h1 {
+            font-size: 1.5rem;
+            line-height: 1.6rem;
+            margin: 0;
+          }
+          p {
+            font-family: 'GetVoIP Grotesque', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1rem;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .toolbar-end {
+      display: flex;
+      align-items: center;
+      gap : 0.5rem;
+
+      .auth-area {
+        .profile {
+          button {
+            img {
+              width: 1.7rem;
+              height: 1.7rem;
+              margin-top: 0.1rem;
+              border-radius: 100%;
+            }
+          }
         }
       }
     }
@@ -68,7 +93,11 @@
     height: 100%;
 
     mat-sidenav {
-      width: 10vw;
+      width: 11.5vw;
+
+      mat-divider {
+        margin: 0 0 0.5rem;
+      }
     }
 
     mat-sidenav-content {

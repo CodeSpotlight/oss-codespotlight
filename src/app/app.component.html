@@ -1,5 +1,6 @@
 <div class="container" [class.is-mobile]="isMobile()">
   <mat-toolbar class="toolbar">
+    <div class="toolbar-start">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon class="gradient-text">menu</mat-icon></button>
     <a class="logo" routerLink="/">
       <mat-icon svgIcon="logo"></mat-icon>
@@ -8,6 +9,26 @@
         <p class="gradient-text">The Open Source Internship</p>
       </div>
     </a>
+  </div>
+  <div class="toolbar-end">
+    <div class="auth-area">
+      @if (!authService.user()) {
+      <div class="auth">
+        <a mat-mini-fab (click)="onSignIn()"><mat-icon>login</mat-icon></a>
+      </div>
+      } @else {
+      <div class="profile">
+        <button mat-mini-fab [matMenuTriggerFor]="beforeMenu" aria-label="Example icon button with a profile image">
+          <img src="{{authService.avatar()}}" alt="">
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <a mat-menu-item [routerLink]="['/user', authService.username()]"><mat-icon class="gradient-text">person</mat-icon>Profile</a>
+          <button mat-menu-item (click)="onLogout()"><mat-icon class="gradient-text">logout</mat-icon>Logout</button>
+        </mat-menu>
+      </div>
+      }
+    </div>
+  </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="isMobile() ? 56 : 0">
@@ -19,6 +40,17 @@
           <mat-icon class="gradient-text">{{nav.icon}}</mat-icon>
           <span class="gradient-text">{{nav.name}}</span>
         </a>
+        }
+        @if (authService.user()) {
+          <mat-divider></mat-divider>
+          <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+            <mat-icon class="gradient-text">dashboard</mat-icon>
+            <span class="gradient-text">Dashboard</span>
+          </a>
+          <a mat-list-item [routerLink]="['/user', authService.username()]" routerLinkActive="active">
+            <mat-icon class="gradient-text">person</mat-icon>
+            <span class="gradient-text">Profile</span>
+          </a>
         }
       </mat-nav-list>
     </mat-sidenav>
