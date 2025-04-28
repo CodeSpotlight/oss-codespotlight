@@ -84,7 +84,7 @@ Even if the issue is labeled as not implemented, it remains your responsibility 
 
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-1. Search [AhguHashBlog](https://github.com/CodeSpotlight) for an open or closed PR that relates to your submission.
+1. Search [CodeSpotlight](https://github.com/CodeSpotlight) for an open or closed PR that relates to your submission.
    You don't want to duplicate existing efforts.
 
 2. Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add.
@@ -120,7 +120,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
    git push origin my-fix-branch
    ```
 
-10. In GitHub, send a pull request to `CodeSpotlight/angular-primeng:main`.
+10. In GitHub, send a pull request to `CodeSpotlight/CodeSpotlight:main`.
 
 **DO NOT** erase the provided PR template! It is intended for you to use, not to replace it with random text.
 

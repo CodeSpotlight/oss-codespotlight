@@ -1,5 +1,4 @@
 # CodeSpotlight 
-## Main Website Repository
 
 Welcome to the **CodeSpotlight Open Source Internship Program Website** repository! 
 
@@ -61,8 +60,8 @@ Before you start, make sure you have the following installed on your machine:
 ### Installation
 1. Clone the repository:
     ```
-    git clone https://github.com/your-org-name/codespotlight-website.git
-    cd codespotlight-website
+    git clone https://github.com/CodeSpotlight/oss-codespotlight.git
+    cd oss-codespotlight
    ```
 
 2. Install dependencies:
