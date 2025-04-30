@@ -180,6 +180,24 @@ app-footer {
   background-color: #1f1f1f;
   box-shadow: 0 -0.1rem 0.2rem #00000065;
   color: gray;
+
+  .social-links {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 1.5rem !important;
+      width: 1.5rem !important;
+      border-radius: 0.4rem !important;
+
+      mat-icon {
+        height: 1.05rem !important;
+        width: 1.05rem !important;
+        font-size: 1rem !important;
+        opacity: 0.7;
+      }
+    }
+  }
 }
 
 @media (prefers-color-scheme: light) {

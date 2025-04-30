@@ -1,1 +1,11 @@
-<small>CodeSpotlight - The Open Source Internship</small>
+<div class="copyright">
+  <small>&copy; 2024 - {{currentYear}} codespotlight.dev</small>
+  <small>developed by <a class="gradient-text" href="https://esthersoftware.dev" target="_blank" rel="noopener">Esther White</a></small>
+  </div>
+  <div class="social-links">
+    @for (link of socialLinks; track link.icon) {
+    <a mat-mini-fab href="{{link.url}}" target="_blank" rel="noopener">
+      <mat-icon svgIcon="{{link.icon}}"></mat-icon>
+    </a>
+    }
+  </div>
